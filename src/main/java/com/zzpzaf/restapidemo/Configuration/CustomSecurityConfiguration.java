@@ -33,7 +33,6 @@ public class CustomSecurityConfiguration extends WebSecurityConfigurerAdapter {
             http.authorizeRequests().antMatchers("/api/items").hasRole("ADMIN")
             .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             .and().httpBasic()
-            .realmName(env.getProperty("app.realm"))
             .authenticationEntryPoint(
                     (request, response, authException) -> {
                         response.setHeader("WWW-Authenticate", "Basic realm=" + env.getProperty("app.realm") + "");
