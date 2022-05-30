@@ -12,9 +12,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ItemsRepo {
-    
-
-    //private Item item = new Item();
        
     @Autowired
     private JdbcTemplate jdbcTemplate; 

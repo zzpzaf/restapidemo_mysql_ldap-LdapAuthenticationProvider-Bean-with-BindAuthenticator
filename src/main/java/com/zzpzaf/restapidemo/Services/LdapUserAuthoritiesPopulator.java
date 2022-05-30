@@ -23,12 +23,10 @@ public class LdapUserAuthoritiesPopulator implements LdapAuthoritiesPopulator {
     @Override
     public Collection<? extends GrantedAuthority> getGrantedAuthorities(DirContextOperations userData, String username) {
 
-        //Collection<? extends GrantedAuthority> authorities = new HashSet<>();
         Collection<? extends GrantedAuthority> authorities = new ArrayList<>();
 
         try {
             authorities = userDetailsService.loadUserByUsername(username).getAuthorities();
-            //logger.info("LdapUserAuthoritiesPopulator --> " + authorities);
         } catch (Exception e) {
             logger.error("Exception occurred while trying to fetch the user authorities from the database - User might not belong to local users");
         }
